@@ -51,7 +51,7 @@ namespace Sistem_Tienda
             this.Menu_Eliminar = new System.Windows.Forms.ToolStripMenuItem();
             this.Menu_Reporte = new System.Windows.Forms.ToolStripMenuItem();
             this.Menu_Salir = new System.Windows.Forms.ToolStripMenuItem();
-            this.button1 = new System.Windows.Forms.Button();
+            this.Btn_Buscar = new System.Windows.Forms.Button();
             this.txt_Buscar = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_articulos)).BeginInit();
@@ -85,6 +85,7 @@ namespace Sistem_Tienda
             this.txt_Articulo.Font = new System.Drawing.Font("Roboto Serif 20pt", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_Articulo.Location = new System.Drawing.Point(93, 41);
             this.txt_Articulo.Name = "txt_Articulo";
+            this.txt_Articulo.ReadOnly = true;
             this.txt_Articulo.Size = new System.Drawing.Size(295, 25);
             this.txt_Articulo.TabIndex = 2;
             // 
@@ -93,6 +94,7 @@ namespace Sistem_Tienda
             this.txt_Marca.Font = new System.Drawing.Font("Roboto Serif 20pt", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_Marca.Location = new System.Drawing.Point(508, 41);
             this.txt_Marca.Name = "txt_Marca";
+            this.txt_Marca.ReadOnly = true;
             this.txt_Marca.Size = new System.Drawing.Size(309, 25);
             this.txt_Marca.TabIndex = 4;
             // 
@@ -111,6 +113,7 @@ namespace Sistem_Tienda
             this.Txt_Medida.Font = new System.Drawing.Font("Roboto Serif 20pt", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Txt_Medida.Location = new System.Drawing.Point(93, 92);
             this.Txt_Medida.Name = "Txt_Medida";
+            this.Txt_Medida.ReadOnly = true;
             this.Txt_Medida.Size = new System.Drawing.Size(252, 25);
             this.Txt_Medida.TabIndex = 6;
             // 
@@ -130,16 +133,16 @@ namespace Sistem_Tienda
             this.Btn_lupa_Unidad_De_Medida.Name = "Btn_lupa_Unidad_De_Medida";
             this.Btn_lupa_Unidad_De_Medida.Size = new System.Drawing.Size(37, 24);
             this.Btn_lupa_Unidad_De_Medida.TabIndex = 7;
-            this.Btn_lupa_Unidad_De_Medida.Text = "button1";
+            this.Btn_lupa_Unidad_De_Medida.Text = "...";
             this.Btn_lupa_Unidad_De_Medida.UseVisualStyleBackColor = true;
             // 
             // btn_lupa_categoria
             // 
-            this.btn_lupa_categoria.Location = new System.Drawing.Point(780, 97);
+            this.btn_lupa_categoria.Location = new System.Drawing.Point(763, 95);
             this.btn_lupa_categoria.Name = "btn_lupa_categoria";
-            this.btn_lupa_categoria.Size = new System.Drawing.Size(37, 24);
+            this.btn_lupa_categoria.Size = new System.Drawing.Size(32, 24);
             this.btn_lupa_categoria.TabIndex = 10;
-            this.btn_lupa_categoria.Text = "button2";
+            this.btn_lupa_categoria.Text = "...";
             this.btn_lupa_categoria.UseVisualStyleBackColor = true;
             // 
             // Txt_Categoria
@@ -147,6 +150,7 @@ namespace Sistem_Tienda
             this.Txt_Categoria.Font = new System.Drawing.Font("Roboto Serif 20pt", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Txt_Categoria.Location = new System.Drawing.Point(508, 94);
             this.Txt_Categoria.Name = "Txt_Categoria";
+            this.Txt_Categoria.ReadOnly = true;
             this.Txt_Categoria.Size = new System.Drawing.Size(249, 25);
             this.Txt_Categoria.TabIndex = 9;
             // 
@@ -165,6 +169,7 @@ namespace Sistem_Tienda
             this.txt_Stock.Font = new System.Drawing.Font("Roboto Serif 20pt", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_Stock.Location = new System.Drawing.Point(122, 142);
             this.txt_Stock.Name = "txt_Stock";
+            this.txt_Stock.ReadOnly = true;
             this.txt_Stock.Size = new System.Drawing.Size(266, 25);
             this.txt_Stock.TabIndex = 12;
             // 
@@ -187,6 +192,8 @@ namespace Sistem_Tienda
             this.Btn_Cancelar.TabIndex = 13;
             this.Btn_Cancelar.Text = "Cancelar";
             this.Btn_Cancelar.UseVisualStyleBackColor = true;
+            this.Btn_Cancelar.Visible = false;
+            this.Btn_Cancelar.Click += new System.EventHandler(this.Btn_Cancelar_Click);
             // 
             // Btn_Guardar
             // 
@@ -197,6 +204,7 @@ namespace Sistem_Tienda
             this.Btn_Guardar.TabIndex = 14;
             this.Btn_Guardar.Text = "Guardar";
             this.Btn_Guardar.UseVisualStyleBackColor = true;
+            this.Btn_Guardar.Visible = false;
             // 
             // menuStrip1
             // 
@@ -219,6 +227,7 @@ namespace Sistem_Tienda
             this.Menu_Nuevo.Name = "Menu_Nuevo";
             this.Menu_Nuevo.Size = new System.Drawing.Size(85, 26);
             this.Menu_Nuevo.Text = "Nuevo";
+            this.Menu_Nuevo.Click += new System.EventHandler(this.Menu_Nuevo_Click);
             // 
             // Menu_Actualizar
             // 
@@ -248,14 +257,15 @@ namespace Sistem_Tienda
             this.Menu_Salir.Size = new System.Drawing.Size(71, 26);
             this.Menu_Salir.Text = "Salir";
             // 
-            // button1
+            // Btn_Buscar
             // 
-            this.button1.Location = new System.Drawing.Point(351, 190);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(37, 24);
-            this.button1.TabIndex = 18;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.Btn_Buscar.Location = new System.Drawing.Point(351, 190);
+            this.Btn_Buscar.Name = "Btn_Buscar";
+            this.Btn_Buscar.Size = new System.Drawing.Size(37, 24);
+            this.Btn_Buscar.TabIndex = 18;
+            this.Btn_Buscar.Text = "button1";
+            this.Btn_Buscar.UseVisualStyleBackColor = true;
+            this.Btn_Buscar.Click += new System.EventHandler(this.button1_Click);
             // 
             // txt_Buscar
             // 
@@ -280,7 +290,7 @@ namespace Sistem_Tienda
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(851, 393);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.Btn_Buscar);
             this.Controls.Add(this.txt_Buscar);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.Btn_Guardar);
@@ -335,7 +345,7 @@ namespace Sistem_Tienda
         private System.Windows.Forms.ToolStripMenuItem Menu_Eliminar;
         private System.Windows.Forms.ToolStripMenuItem Menu_Reporte;
         private System.Windows.Forms.ToolStripMenuItem Menu_Salir;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button Btn_Buscar;
         private System.Windows.Forms.TextBox txt_Buscar;
         private System.Windows.Forms.Label label2;
     }
