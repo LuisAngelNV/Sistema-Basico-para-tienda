@@ -78,7 +78,13 @@ namespace Sistem_Tienda.Datos
                 }
                 else //Actualizar Registro
                 {
-
+                    sqlTarea = "update tb_articulos set descripcion_ar= '"+ oAr.descripcion_ar+"' ," +
+                                                        "marca_ar= '"+oAr.marca_ar+"' ," +
+                                                        "codigo_um= '"+oAr.codigo_um+"' ," +
+                                                        "codigo_ca= '"+oAr.codigo_ca+"' ," +
+                                                        "stock_actual= '"+oAr.stock_actual+"' ," +
+                                                        "fecha_modificado= '"+oAr.fecha_modificado+"' " +
+                                                        "where id_ar= '"+oAr.id_ar+"'";
                 }
                 MySqlCommand Comando = new MySqlCommand(sqlTarea, sqlcon);
                 sqlcon.Open();

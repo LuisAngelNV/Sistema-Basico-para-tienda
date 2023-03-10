@@ -89,6 +89,26 @@ namespace Sistem_Tienda
             txt_Marca.Text = "";
             Txt_Medida.Text = "";
             txt_Stock.Text = "";
+            Txt_Categoria.Text = "";
+        }
+
+        private void Selecciona_item()
+        {
+            if (string.IsNullOrEmpty(Convert.ToString(dgv_articulos.CurrentRow.Cells["id_ar"].Value)))
+            {
+                MessageBox.Show("Selecciona un registro",
+                                "Aviso del sistema",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Exclamation);
+            }else {
+                this.nid_ar =Convert.ToInt32(dgv_articulos.CurrentRow.Cells["id_ar"].Value);
+                txt_Articulo.Text= Convert.ToString(dgv_articulos.CurrentRow.Cells["descripcion_ar"].Value); 
+                txt_Marca.Text= Convert.ToString(dgv_articulos.CurrentRow.Cells["marca_ar"].Value);
+                Txt_Medida.Text = Convert.ToString(dgv_articulos.CurrentRow.Cells["codigo_um"].Value);
+                Txt_Categoria.Text = Convert.ToString(dgv_articulos.CurrentRow.Cells["codigo_ca"].Value);
+                txt_Stock.Text = Convert.ToString(dgv_articulos.CurrentRow.Cells["stock_actual"].Value);
+            }
+
         }
 
         #endregion
@@ -159,6 +179,20 @@ namespace Sistem_Tienda
                                 MessageBoxIcon.Error);
             }
 
+        }
+
+        private void Menu_Actualizar_Click(object sender, EventArgs e)
+        {
+            nEstadoGuarda = 2; //Actualizar 
+            this.Estado_Tex(true);
+            this.Estado_botones_proceso(true);
+            this.Estado_Botones_Principales(false);
+            txt_Articulo.Focus();
+        }
+
+        private void dgv_articulos_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            this.Selecciona_item();
         }
     }
 }

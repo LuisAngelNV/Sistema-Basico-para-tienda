@@ -69,6 +69,7 @@ namespace Sistem_Tienda
             this.dgv_articulos.ReadOnly = true;
             this.dgv_articulos.Size = new System.Drawing.Size(827, 161);
             this.dgv_articulos.TabIndex = 0;
+            this.dgv_articulos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_articulos_CellClick);
             // 
             // label1
             // 
@@ -236,6 +237,7 @@ namespace Sistem_Tienda
             this.Menu_Actualizar.Name = "Menu_Actualizar";
             this.Menu_Actualizar.Size = new System.Drawing.Size(110, 26);
             this.Menu_Actualizar.Text = "Actualizar";
+            this.Menu_Actualizar.Click += new System.EventHandler(this.Menu_Actualizar_Click);
             // 
             // Menu_Eliminar
             // 
