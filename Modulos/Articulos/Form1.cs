@@ -1,4 +1,5 @@
 ﻿using Sistem_Tienda.Datos;
+using Sistem_Tienda.Propiedades;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,8 +19,13 @@ namespace Sistem_Tienda
             InitializeComponent();
         }
 
+        #region "Mis Variables"
+        int nid_ar = 0;
+        int nEstadoGuarda = 0;
+        #endregion
+
         #region "Mis Metodos"
-       private void Formato_ar()
+        private void Formato_ar()
         {
             dgv_articulos.Columns[0].Width = 80;
             dgv_articulos.Columns[0].HeaderText = "CÓDIGO";
@@ -77,6 +83,14 @@ namespace Sistem_Tienda
             Menu_Salir.Enabled = lEstado;
         }
 
+        private void Limpia_texto()
+        {
+            txt_Articulo.Text = "";
+            txt_Marca.Text = "";
+            Txt_Medida.Text = "";
+            txt_Stock.Text = "";
+        }
+
         #endregion
         //al inicizalizar el proyecto ejecute
         private void Form1_Load(object sender, EventArgs e)
@@ -92,6 +106,8 @@ namespace Sistem_Tienda
 
         private void Menu_Nuevo_Click(object sender, EventArgs e)
         {
+            nEstadoGuarda = 1; //Nuevo resgitro
+            this.Limpia_texto();
             this.Estado_Tex(true);
             this.Estado_botones_proceso(true);
             this.Estado_Botones_Principales(true);
@@ -100,9 +116,49 @@ namespace Sistem_Tienda
 
         private void Btn_Cancelar_Click(object sender, EventArgs e)
         {
+            this.Limpia_texto();
             this.Estado_Tex(false);
             this.Estado_botones_proceso(false);
             this.Estado_Botones_Principales(true);
+            txt_Buscar.Focus();
+        }
+
+        private void Btn_Guardar_Click(object sender, EventArgs e)
+        {
+            string Rpta = "";
+            //instanciar p_Articulos
+            P_Articulos oAr = new P_Articulos();
+            oAr.id_ar = nid_ar;
+            oAr.descripcion_ar = txt_Articulo.Text.Trim();
+            oAr.marca_ar = txt_Marca.Text.Trim();
+            oAr.codigo_um = 1;
+            oAr.codigo_ca = 1;
+            oAr.stock_actual = Convert.ToDecimal(txt_Stock.Text.Trim());
+            oAr.fecha_creado = DateTime.Now.ToString("yyyy-MM-dd");
+            oAr.fecha_modificado = DateTime.Now.ToString("yyyy-MM-dd");
+
+
+            //Instancia de D_Articulos
+            D_Articulos Datos = new D_Articulos();
+            Rpta = Datos.Guardar_ar(nEstadoGuarda, oAr);
+            if (Rpta.Equals("OK"))
+            {
+                this.Estado_Tex(false);
+                this.Estado_botones_proceso(false);
+                this.Estado_Botones_Principales(true);
+                this.Listado_Art("%");
+                MessageBox.Show("Los datos han sido guardados correctamente",
+                                "Aviso del sistema",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Information);
+            }else
+            {
+                MessageBox.Show(Rpta,
+                                "Aviso del sistema ",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
+            }
+
         }
     }
 }

@@ -205,6 +205,7 @@ namespace Sistem_Tienda
             this.Btn_Guardar.Text = "Guardar";
             this.Btn_Guardar.UseVisualStyleBackColor = true;
             this.Btn_Guardar.Visible = false;
+            this.Btn_Guardar.Click += new System.EventHandler(this.Btn_Guardar_Click);
             // 
             // menuStrip1
             // 

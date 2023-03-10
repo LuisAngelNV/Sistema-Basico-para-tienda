@@ -9,6 +9,7 @@ using System.Data;
 using MySql.Data;
 using MySql.Data.MySqlClient;
 using Sistem_Tienda.DBCONNECTION;
+using Sistem_Tienda.Propiedades;
 
 namespace Sistem_Tienda.Datos
 {
@@ -48,5 +49,52 @@ namespace Sistem_Tienda.Datos
                 if (sqlcon.State == ConnectionState.Open) sqlcon.Close();
             }
         }
+        //oAr = Objeto Articulo
+        //Rpta = Respuesta
+        public string Guardar_ar(int nOpcion, P_Articulos oAr)
+        {
+            string Rpta = "";
+            string sqlTarea = "";
+            MySqlConnection sqlcon = new MySqlConnection();
+            try
+            {
+                sqlcon = Conexion.getInstacia().CrearConexion();
+                if (nOpcion==1) //Nuevo registro
+                {
+                    sqlTarea = "Insert into tb_articulos(descripcion_ar, " +
+                           "marca_ar, " +
+                           "codigo_um, " +
+                           "codigo_ca, " +
+                           "stock_actual, " +
+                           "fecha_creado, " +
+                           "fecha_modificado) " +
+                           "values('" + oAr.descripcion_ar + "', " +
+                                   "'" + oAr.marca_ar + "', " +
+                                   "'" + oAr.codigo_um + "', " +
+                                   "'" + oAr.codigo_ca + "', " +
+                                   "'" + oAr.stock_actual + "', " +
+                                   "'" + oAr.fecha_creado + "', " +
+                                   "'" + oAr.fecha_modificado + "')"; 
+                }
+                else //Actualizar Registro
+                {
+
+                }
+                MySqlCommand Comando = new MySqlCommand(sqlTarea, sqlcon);
+                sqlcon.Open();
+                Rpta = Comando.ExecuteNonQuery() >= 1 ? "OK" : "No se pudo ingresar el registro";
+            }
+            catch (Exception ex)
+            {
+                Rpta=ex.Message;
+            }
+            finally
+            {
+                if (sqlcon.State == ConnectionState.Open) sqlcon.Close();
+            }
+            return Rpta;
+        }
+
+
     }
 }
