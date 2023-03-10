@@ -167,6 +167,8 @@ namespace Sistem_Tienda
                 this.Estado_botones_proceso(false);
                 this.Estado_Botones_Principales(true);
                 this.Listado_Art("%");
+                nid_ar = 0;
+
                 MessageBox.Show("Los datos han sido guardados correctamente",
                                 "Aviso del sistema",
                                 MessageBoxButtons.OK,
