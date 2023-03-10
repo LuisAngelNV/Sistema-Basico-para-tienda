@@ -51,6 +51,9 @@ namespace Sistem_Tienda
             this.Menu_Eliminar = new System.Windows.Forms.ToolStripMenuItem();
             this.Menu_Reporte = new System.Windows.Forms.ToolStripMenuItem();
             this.Menu_Salir = new System.Windows.Forms.ToolStripMenuItem();
+            this.button1 = new System.Windows.Forms.Button();
+            this.txt_Buscar = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_articulos)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -61,10 +64,10 @@ namespace Sistem_Tienda
             this.dgv_articulos.AllowUserToDeleteRows = false;
             this.dgv_articulos.AllowUserToOrderColumns = true;
             this.dgv_articulos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_articulos.Location = new System.Drawing.Point(12, 202);
+            this.dgv_articulos.Location = new System.Drawing.Point(14, 220);
             this.dgv_articulos.Name = "dgv_articulos";
             this.dgv_articulos.ReadOnly = true;
-            this.dgv_articulos.Size = new System.Drawing.Size(803, 161);
+            this.dgv_articulos.Size = new System.Drawing.Size(827, 161);
             this.dgv_articulos.TabIndex = 0;
             // 
             // label1
@@ -82,22 +85,22 @@ namespace Sistem_Tienda
             this.txt_Articulo.Font = new System.Drawing.Font("Roboto Serif 20pt", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_Articulo.Location = new System.Drawing.Point(93, 41);
             this.txt_Articulo.Name = "txt_Articulo";
-            this.txt_Articulo.Size = new System.Drawing.Size(202, 25);
+            this.txt_Articulo.Size = new System.Drawing.Size(295, 25);
             this.txt_Articulo.TabIndex = 2;
             // 
             // txt_Marca
             // 
             this.txt_Marca.Font = new System.Drawing.Font("Roboto Serif 20pt", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_Marca.Location = new System.Drawing.Point(498, 41);
+            this.txt_Marca.Location = new System.Drawing.Point(508, 41);
             this.txt_Marca.Name = "txt_Marca";
-            this.txt_Marca.Size = new System.Drawing.Size(202, 25);
+            this.txt_Marca.Size = new System.Drawing.Size(309, 25);
             this.txt_Marca.TabIndex = 4;
             // 
             // Marca
             // 
             this.Marca.AutoSize = true;
             this.Marca.Font = new System.Drawing.Font("Roboto Serif 20pt", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Marca.Location = new System.Drawing.Point(403, 44);
+            this.Marca.Location = new System.Drawing.Point(429, 44);
             this.Marca.Name = "Marca";
             this.Marca.Size = new System.Drawing.Size(62, 22);
             this.Marca.TabIndex = 3;
@@ -106,9 +109,9 @@ namespace Sistem_Tienda
             // Txt_Medida
             // 
             this.Txt_Medida.Font = new System.Drawing.Font("Roboto Serif 20pt", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Txt_Medida.Location = new System.Drawing.Point(93, 93);
+            this.Txt_Medida.Location = new System.Drawing.Point(93, 92);
             this.Txt_Medida.Name = "Txt_Medida";
-            this.Txt_Medida.Size = new System.Drawing.Size(202, 25);
+            this.Txt_Medida.Size = new System.Drawing.Size(252, 25);
             this.Txt_Medida.TabIndex = 6;
             // 
             // Medida
@@ -123,7 +126,7 @@ namespace Sistem_Tienda
             // 
             // Btn_lupa_Unidad_De_Medida
             // 
-            this.Btn_lupa_Unidad_De_Medida.Location = new System.Drawing.Point(301, 94);
+            this.Btn_lupa_Unidad_De_Medida.Location = new System.Drawing.Point(351, 93);
             this.Btn_lupa_Unidad_De_Medida.Name = "Btn_lupa_Unidad_De_Medida";
             this.Btn_lupa_Unidad_De_Medida.Size = new System.Drawing.Size(37, 24);
             this.Btn_lupa_Unidad_De_Medida.TabIndex = 7;
@@ -132,7 +135,7 @@ namespace Sistem_Tienda
             // 
             // btn_lupa_categoria
             // 
-            this.btn_lupa_categoria.Location = new System.Drawing.Point(706, 95);
+            this.btn_lupa_categoria.Location = new System.Drawing.Point(780, 97);
             this.btn_lupa_categoria.Name = "btn_lupa_categoria";
             this.btn_lupa_categoria.Size = new System.Drawing.Size(37, 24);
             this.btn_lupa_categoria.TabIndex = 10;
@@ -142,9 +145,9 @@ namespace Sistem_Tienda
             // Txt_Categoria
             // 
             this.Txt_Categoria.Font = new System.Drawing.Font("Roboto Serif 20pt", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Txt_Categoria.Location = new System.Drawing.Point(498, 94);
+            this.Txt_Categoria.Location = new System.Drawing.Point(508, 94);
             this.Txt_Categoria.Name = "Txt_Categoria";
-            this.Txt_Categoria.Size = new System.Drawing.Size(202, 25);
+            this.Txt_Categoria.Size = new System.Drawing.Size(249, 25);
             this.Txt_Categoria.TabIndex = 9;
             // 
             // Categoria
@@ -160,16 +163,16 @@ namespace Sistem_Tienda
             // txt_Stock
             // 
             this.txt_Stock.Font = new System.Drawing.Font("Roboto Serif 20pt", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_Stock.Location = new System.Drawing.Point(116, 146);
+            this.txt_Stock.Location = new System.Drawing.Point(122, 142);
             this.txt_Stock.Name = "txt_Stock";
-            this.txt_Stock.Size = new System.Drawing.Size(302, 25);
+            this.txt_Stock.Size = new System.Drawing.Size(266, 25);
             this.txt_Stock.TabIndex = 12;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Roboto Serif 20pt", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(14, 146);
+            this.label5.Location = new System.Drawing.Point(10, 145);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(106, 22);
             this.label5.TabIndex = 11;
@@ -206,7 +209,7 @@ namespace Sistem_Tienda
             this.Menu_Salir});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(845, 30);
+            this.menuStrip1.Size = new System.Drawing.Size(851, 30);
             this.menuStrip1.TabIndex = 15;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -221,35 +224,65 @@ namespace Sistem_Tienda
             // 
             this.Menu_Actualizar.Image = ((System.Drawing.Image)(resources.GetObject("Menu_Actualizar.Image")));
             this.Menu_Actualizar.Name = "Menu_Actualizar";
-            this.Menu_Actualizar.Size = new System.Drawing.Size(87, 20);
+            this.Menu_Actualizar.Size = new System.Drawing.Size(110, 26);
             this.Menu_Actualizar.Text = "Actualizar";
             // 
             // Menu_Eliminar
             // 
             this.Menu_Eliminar.Image = ((System.Drawing.Image)(resources.GetObject("Menu_Eliminar.Image")));
             this.Menu_Eliminar.Name = "Menu_Eliminar";
-            this.Menu_Eliminar.Size = new System.Drawing.Size(78, 20);
+            this.Menu_Eliminar.Size = new System.Drawing.Size(101, 26);
             this.Menu_Eliminar.Text = "Eliminar";
             // 
             // Menu_Reporte
             // 
             this.Menu_Reporte.Image = ((System.Drawing.Image)(resources.GetObject("Menu_Reporte.Image")));
             this.Menu_Reporte.Name = "Menu_Reporte";
-            this.Menu_Reporte.Size = new System.Drawing.Size(76, 20);
+            this.Menu_Reporte.Size = new System.Drawing.Size(95, 26);
             this.Menu_Reporte.Text = "Reporte";
             // 
             // Menu_Salir
             // 
             this.Menu_Salir.Image = ((System.Drawing.Image)(resources.GetObject("Menu_Salir.Image")));
             this.Menu_Salir.Name = "Menu_Salir";
-            this.Menu_Salir.Size = new System.Drawing.Size(57, 20);
+            this.Menu_Salir.Size = new System.Drawing.Size(71, 26);
             this.Menu_Salir.Text = "Salir";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(351, 190);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(37, 24);
+            this.button1.TabIndex = 18;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // txt_Buscar
+            // 
+            this.txt_Buscar.Font = new System.Drawing.Font("Roboto Serif 20pt", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_Buscar.Location = new System.Drawing.Point(93, 189);
+            this.txt_Buscar.Name = "txt_Buscar";
+            this.txt_Buscar.Size = new System.Drawing.Size(252, 25);
+            this.txt_Buscar.TabIndex = 17;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Roboto Serif 20pt", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(14, 190);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(58, 22);
+            this.label2.TabIndex = 16;
+            this.label2.Text = "Buscar";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(845, 393);
+            this.ClientSize = new System.Drawing.Size(851, 393);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.txt_Buscar);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.Btn_Guardar);
             this.Controls.Add(this.Btn_Cancelar);
             this.Controls.Add(this.txt_Stock);
@@ -268,7 +301,9 @@ namespace Sistem_Tienda
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_articulos)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -300,6 +335,9 @@ namespace Sistem_Tienda
         private System.Windows.Forms.ToolStripMenuItem Menu_Eliminar;
         private System.Windows.Forms.ToolStripMenuItem Menu_Reporte;
         private System.Windows.Forms.ToolStripMenuItem Menu_Salir;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox txt_Buscar;
+        private System.Windows.Forms.Label label2;
     }
 }
 
