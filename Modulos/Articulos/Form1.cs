@@ -1,4 +1,5 @@
 ﻿using Sistem_Tienda.Datos;
+using Sistem_Tienda.Modulos.Reporte_Articulos;
 using Sistem_Tienda.Propiedades;
 using System;
 using System.Collections.Generic;
@@ -226,6 +227,17 @@ namespace Sistem_Tienda
                                     MessageBoxIcon.Exclamation);
                 }
 
+        }
+
+        private void Menu_Salir_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void Menu_Reporte_Click(object sender, EventArgs e)
+        {
+            Frm_Reporte_Articulos oRpt = new Frm_Reporte_Articulos();
+            oRpt.ShowDialog();
         }
     }
 }

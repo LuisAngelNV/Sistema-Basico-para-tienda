@@ -253,6 +253,7 @@ namespace Sistem_Tienda
             this.Menu_Reporte.Name = "Menu_Reporte";
             this.Menu_Reporte.Size = new System.Drawing.Size(95, 26);
             this.Menu_Reporte.Text = "Reporte";
+            this.Menu_Reporte.Click += new System.EventHandler(this.Menu_Reporte_Click);
             // 
             // Menu_Salir
             // 
@@ -260,6 +261,7 @@ namespace Sistem_Tienda
             this.Menu_Salir.Name = "Menu_Salir";
             this.Menu_Salir.Size = new System.Drawing.Size(71, 26);
             this.Menu_Salir.Text = "Salir";
+            this.Menu_Salir.Click += new System.EventHandler(this.Menu_Salir_Click);
             // 
             // Btn_Buscar
             // 
