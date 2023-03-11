@@ -245,6 +245,7 @@ namespace Sistem_Tienda
             this.Menu_Eliminar.Name = "Menu_Eliminar";
             this.Menu_Eliminar.Size = new System.Drawing.Size(101, 26);
             this.Menu_Eliminar.Text = "Eliminar";
+            this.Menu_Eliminar.Click += new System.EventHandler(this.Menu_Eliminar_Click);
             // 
             // Menu_Reporte
             // 
@@ -314,6 +315,8 @@ namespace Sistem_Tienda
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
+            this.MaximumSize = new System.Drawing.Size(867, 432);
+            this.MinimumSize = new System.Drawing.Size(867, 432);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";

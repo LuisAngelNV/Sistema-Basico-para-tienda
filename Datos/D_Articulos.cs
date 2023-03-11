@@ -30,6 +30,7 @@ namespace Sistem_Tienda.Datos
                     "INNER JOIN tb_unidad_medidas b ON a.codigo_um=b.id_um " +
                     "INNER JOIN tb_categoria c ON a.codigo_ca=c.id_ca " +
                     "where a.descripcion_ar like '"+cTexto+"' " +
+                    "and a.Estado=1" +
                     " order by a.id_ar";
 
                 MySqlCommand Comando = new MySqlCommand(sql_tarea, sqlcon);
@@ -67,14 +68,15 @@ namespace Sistem_Tienda.Datos
                            "codigo_ca, " +
                            "stock_actual, " +
                            "fecha_creado, " +
-                           "fecha_modificado) " +
+                           "fecha_modificado," +
+                           "estado) " +
                            "values('" + oAr.descripcion_ar + "', " +
                                    "'" + oAr.marca_ar + "', " +
                                    "'" + oAr.codigo_um + "', " +
                                    "'" + oAr.codigo_ca + "', " +
                                    "'" + oAr.stock_actual + "', " +
                                    "'" + oAr.fecha_creado + "', " +
-                                   "'" + oAr.fecha_modificado + "')"; 
+                                   "'" + oAr.fecha_modificado + "', 1)"; 
                 }
                 else //Actualizar Registro
                 {
@@ -93,6 +95,35 @@ namespace Sistem_Tienda.Datos
             catch (Exception ex)
             {
                 Rpta=ex.Message;
+            }
+            finally
+            {
+                if (sqlcon.State == ConnectionState.Open) sqlcon.Close();
+            }
+            return Rpta;
+        }
+
+        public string Eliminar_ar(int nId_ar)
+        {
+            string Rpta = "";
+            string sqlTarea = "";
+            MySqlConnection sqlcon = new MySqlConnection();
+            try
+            {
+                sqlcon = Conexion.getInstacia().CrearConexion();
+                //Eliminación por completo
+                //sqlTarea = "delete from tb_articulos where id_ar = '"+nId_ar+"'";
+                //Desabilitar elementos
+                sqlTarea = "update tb_articulos set Estado = 0 where id_ar ='" + nId_ar + "' ";
+
+
+                MySqlCommand Comando = new MySqlCommand(sqlTarea, sqlcon);
+                sqlcon.Open();
+                Rpta = Comando.ExecuteNonQuery() >= 1 ? "OK" : "No se pudo eliminar el registro";
+            }
+            catch (Exception ex)
+            {
+                Rpta = ex.Message;
             }
             finally
             {

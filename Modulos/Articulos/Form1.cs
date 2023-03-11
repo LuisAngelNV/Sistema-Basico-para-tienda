@@ -136,6 +136,8 @@ namespace Sistem_Tienda
 
         private void Btn_Cancelar_Click(object sender, EventArgs e)
         {
+            nid_ar = 0;
+            nEstadoGuarda = 0;
             this.Limpia_texto();
             this.Estado_Tex(false);
             this.Estado_botones_proceso(false);
@@ -195,6 +197,35 @@ namespace Sistem_Tienda
         private void dgv_articulos_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             this.Selecciona_item();
+        }
+
+        private void Menu_Eliminar_Click(object sender, EventArgs e)
+        {
+            if (nid_ar > 0)
+            {
+                string Rpta = "";
+                D_Articulos Datos = new D_Articulos();
+                Rpta = Datos.Eliminar_ar(nid_ar);
+                
+                    if (Rpta.Equals("OK"))
+                    {
+                        this.Limpia_texto();
+                    this.Listado_Art("%");
+                        nid_ar = 0;
+                    nEstadoGuarda = 0;
+                        MessageBox.Show("Registro Eliminado Correctamenete",
+                                        "Aviso del sistema",
+                                        MessageBoxButtons.OK,
+                                        MessageBoxIcon.Exclamation);
+                    }
+            }
+            else{
+                    MessageBox.Show("No se tiene seleccionado ningun elemento",
+                                    "Aviso del sistema",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Exclamation);
+                }
+
         }
     }
 }
