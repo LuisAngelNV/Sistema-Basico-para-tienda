@@ -29,7 +29,11 @@ namespace Sistem_Tienda
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgv_articulos = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.txt_Articulo = new System.Windows.Forms.TextBox();
@@ -44,6 +48,7 @@ namespace Sistem_Tienda
             this.txt_Stock = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.Btn_Cancelar = new System.Windows.Forms.Button();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.Btn_Guardar = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.Menu_Nuevo = new System.Windows.Forms.ToolStripMenuItem();
@@ -54,8 +59,18 @@ namespace Sistem_Tienda
             this.Btn_Buscar = new System.Windows.Forms.Button();
             this.txt_Buscar = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.Pnl_Um = new System.Windows.Forms.Panel();
+            this.Btn_Retorno_um = new System.Windows.Forms.Button();
+            this.Dgv_Um = new System.Windows.Forms.DataGridView();
+            this.Pnl_Categoria = new System.Windows.Forms.Panel();
+            this.Btn_Regresar_Categoria = new System.Windows.Forms.Button();
+            this.Dgv_Categoria = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_articulos)).BeginInit();
             this.menuStrip1.SuspendLayout();
+            this.Pnl_Um.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Dgv_Um)).BeginInit();
+            this.Pnl_Categoria.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Dgv_Categoria)).BeginInit();
             this.SuspendLayout();
             // 
             // dgv_articulos
@@ -63,7 +78,11 @@ namespace Sistem_Tienda
             this.dgv_articulos.AllowUserToAddRows = false;
             this.dgv_articulos.AllowUserToDeleteRows = false;
             this.dgv_articulos.AllowUserToOrderColumns = true;
-            this.dgv_articulos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dgv_articulos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.dgv_articulos.BackgroundColor = System.Drawing.Color.Silver;
+            this.dgv_articulos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dgv_articulos.ColumnHeadersHeight = 35;
             this.dgv_articulos.Location = new System.Drawing.Point(14, 220);
             this.dgv_articulos.Name = "dgv_articulos";
             this.dgv_articulos.ReadOnly = true;
@@ -130,21 +149,27 @@ namespace Sistem_Tienda
             // 
             // Btn_lupa_Unidad_De_Medida
             // 
+            this.Btn_lupa_Unidad_De_Medida.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(212)))), ((int)(((byte)(206)))));
+            this.Btn_lupa_Unidad_De_Medida.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Btn_lupa_Unidad_De_Medida.Location = new System.Drawing.Point(351, 93);
             this.Btn_lupa_Unidad_De_Medida.Name = "Btn_lupa_Unidad_De_Medida";
             this.Btn_lupa_Unidad_De_Medida.Size = new System.Drawing.Size(37, 24);
             this.Btn_lupa_Unidad_De_Medida.TabIndex = 7;
             this.Btn_lupa_Unidad_De_Medida.Text = "...";
             this.Btn_lupa_Unidad_De_Medida.UseVisualStyleBackColor = true;
+            this.Btn_lupa_Unidad_De_Medida.Click += new System.EventHandler(this.Btn_lupa_Unidad_De_Medida_Click);
             // 
             // btn_lupa_categoria
             // 
+            this.btn_lupa_categoria.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(212)))), ((int)(((byte)(206)))));
+            this.btn_lupa_categoria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_lupa_categoria.Location = new System.Drawing.Point(763, 95);
             this.btn_lupa_categoria.Name = "btn_lupa_categoria";
             this.btn_lupa_categoria.Size = new System.Drawing.Size(32, 24);
             this.btn_lupa_categoria.TabIndex = 10;
             this.btn_lupa_categoria.Text = "...";
             this.btn_lupa_categoria.UseVisualStyleBackColor = true;
+            this.btn_lupa_categoria.Click += new System.EventHandler(this.btn_lupa_categoria_Click);
             // 
             // Txt_Categoria
             // 
@@ -186,25 +211,51 @@ namespace Sistem_Tienda
             // 
             // Btn_Cancelar
             // 
+            this.Btn_Cancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))));
+            this.Btn_Cancelar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(212)))), ((int)(((byte)(206)))));
+            this.Btn_Cancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Btn_Cancelar.Font = new System.Drawing.Font("Roboto Serif 20pt", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Btn_Cancelar.Location = new System.Drawing.Point(475, 145);
+            this.Btn_Cancelar.ForeColor = System.Drawing.Color.White;
+            this.Btn_Cancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.Btn_Cancelar.ImageKey = "expediente.png";
+            this.Btn_Cancelar.ImageList = this.imageList1;
+            this.Btn_Cancelar.Location = new System.Drawing.Point(459, 145);
             this.Btn_Cancelar.Name = "Btn_Cancelar";
-            this.Btn_Cancelar.Size = new System.Drawing.Size(96, 34);
+            this.Btn_Cancelar.Size = new System.Drawing.Size(100, 34);
             this.Btn_Cancelar.TabIndex = 13;
             this.Btn_Cancelar.Text = "Cancelar";
-            this.Btn_Cancelar.UseVisualStyleBackColor = true;
+            this.Btn_Cancelar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Btn_Cancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.Btn_Cancelar.UseVisualStyleBackColor = false;
             this.Btn_Cancelar.Visible = false;
             this.Btn_Cancelar.Click += new System.EventHandler(this.Btn_Cancelar_Click);
             // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "limpieza.png");
+            this.imageList1.Images.SetKeyName(1, "expediente.png");
+            this.imageList1.Images.SetKeyName(2, "save_3621.png");
+            this.imageList1.Images.SetKeyName(3, "regreso.png");
+            // 
             // Btn_Guardar
             // 
+            this.Btn_Guardar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(84)))), ((int)(((byte)(255)))));
+            this.Btn_Guardar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(212)))), ((int)(((byte)(206)))));
+            this.Btn_Guardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Btn_Guardar.Font = new System.Drawing.Font("Roboto Serif 20pt", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Btn_Guardar.Location = new System.Drawing.Point(578, 146);
+            this.Btn_Guardar.ForeColor = System.Drawing.Color.White;
+            this.Btn_Guardar.ImageKey = "save_3621.png";
+            this.Btn_Guardar.ImageList = this.imageList1;
+            this.Btn_Guardar.Location = new System.Drawing.Point(565, 145);
             this.Btn_Guardar.Name = "Btn_Guardar";
-            this.Btn_Guardar.Size = new System.Drawing.Size(96, 34);
+            this.Btn_Guardar.Size = new System.Drawing.Size(100, 34);
             this.Btn_Guardar.TabIndex = 14;
             this.Btn_Guardar.Text = "Guardar";
-            this.Btn_Guardar.UseVisualStyleBackColor = true;
+            this.Btn_Guardar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Btn_Guardar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.Btn_Guardar.UseVisualStyleBackColor = false;
             this.Btn_Guardar.Visible = false;
             this.Btn_Guardar.Click += new System.EventHandler(this.Btn_Guardar_Click);
             // 
@@ -265,6 +316,8 @@ namespace Sistem_Tienda
             // 
             // Btn_Buscar
             // 
+            this.Btn_Buscar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(212)))), ((int)(((byte)(206)))));
+            this.Btn_Buscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Btn_Buscar.Location = new System.Drawing.Point(351, 190);
             this.Btn_Buscar.Name = "Btn_Buscar";
             this.Btn_Buscar.Size = new System.Drawing.Size(37, 24);
@@ -291,11 +344,103 @@ namespace Sistem_Tienda
             this.label2.TabIndex = 16;
             this.label2.Text = "Buscar";
             // 
+            // Pnl_Um
+            // 
+            this.Pnl_Um.Controls.Add(this.Btn_Retorno_um);
+            this.Pnl_Um.Controls.Add(this.Dgv_Um);
+            this.Pnl_Um.Location = new System.Drawing.Point(158, 173);
+            this.Pnl_Um.Name = "Pnl_Um";
+            this.Pnl_Um.Size = new System.Drawing.Size(246, 239);
+            this.Pnl_Um.TabIndex = 19;
+            this.Pnl_Um.Visible = false;
+            // 
+            // Btn_Retorno_um
+            // 
+            this.Btn_Retorno_um.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(121)))), ((int)(((byte)(81)))));
+            this.Btn_Retorno_um.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(212)))), ((int)(((byte)(206)))));
+            this.Btn_Retorno_um.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Btn_Retorno_um.Font = new System.Drawing.Font("Roboto Serif 20pt", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_Retorno_um.ForeColor = System.Drawing.Color.White;
+            this.Btn_Retorno_um.ImageKey = "regreso.png";
+            this.Btn_Retorno_um.ImageList = this.imageList1;
+            this.Btn_Retorno_um.Location = new System.Drawing.Point(72, 201);
+            this.Btn_Retorno_um.Name = "Btn_Retorno_um";
+            this.Btn_Retorno_um.Size = new System.Drawing.Size(100, 35);
+            this.Btn_Retorno_um.TabIndex = 21;
+            this.Btn_Retorno_um.Text = "Regresar";
+            this.Btn_Retorno_um.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.Btn_Retorno_um.UseVisualStyleBackColor = false;
+            this.Btn_Retorno_um.Click += new System.EventHandler(this.Btn_Retorno_um_Click);
+            // 
+            // Dgv_Um
+            // 
+            this.Dgv_Um.AllowUserToAddRows = false;
+            this.Dgv_Um.AllowUserToDeleteRows = false;
+            this.Dgv_Um.AllowUserToOrderColumns = true;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.Dgv_Um.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            this.Dgv_Um.BackgroundColor = System.Drawing.Color.Silver;
+            this.Dgv_Um.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.Dgv_Um.ColumnHeadersHeight = 35;
+            this.Dgv_Um.Location = new System.Drawing.Point(3, 3);
+            this.Dgv_Um.Name = "Dgv_Um";
+            this.Dgv_Um.ReadOnly = true;
+            this.Dgv_Um.Size = new System.Drawing.Size(240, 201);
+            this.Dgv_Um.TabIndex = 20;
+            this.Dgv_Um.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Dgv_Um_CellDoubleClick);
+            // 
+            // Pnl_Categoria
+            // 
+            this.Pnl_Categoria.Controls.Add(this.Btn_Regresar_Categoria);
+            this.Pnl_Categoria.Controls.Add(this.Dgv_Categoria);
+            this.Pnl_Categoria.Location = new System.Drawing.Point(508, 190);
+            this.Pnl_Categoria.Name = "Pnl_Categoria";
+            this.Pnl_Categoria.Size = new System.Drawing.Size(246, 239);
+            this.Pnl_Categoria.TabIndex = 22;
+            this.Pnl_Categoria.Visible = false;
+            // 
+            // Btn_Regresar_Categoria
+            // 
+            this.Btn_Regresar_Categoria.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(121)))), ((int)(((byte)(81)))));
+            this.Btn_Regresar_Categoria.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(212)))), ((int)(((byte)(206)))));
+            this.Btn_Regresar_Categoria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Btn_Regresar_Categoria.Font = new System.Drawing.Font("Roboto Serif 20pt", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_Regresar_Categoria.ForeColor = System.Drawing.Color.White;
+            this.Btn_Regresar_Categoria.ImageKey = "regreso.png";
+            this.Btn_Regresar_Categoria.ImageList = this.imageList1;
+            this.Btn_Regresar_Categoria.Location = new System.Drawing.Point(72, 201);
+            this.Btn_Regresar_Categoria.Name = "Btn_Regresar_Categoria";
+            this.Btn_Regresar_Categoria.Size = new System.Drawing.Size(100, 35);
+            this.Btn_Regresar_Categoria.TabIndex = 21;
+            this.Btn_Regresar_Categoria.Text = "Regresar";
+            this.Btn_Regresar_Categoria.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.Btn_Regresar_Categoria.UseVisualStyleBackColor = false;
+            this.Btn_Regresar_Categoria.Click += new System.EventHandler(this.Btn_Regresar_Categoria_Click);
+            // 
+            // Dgv_Categoria
+            // 
+            this.Dgv_Categoria.AllowUserToAddRows = false;
+            this.Dgv_Categoria.AllowUserToDeleteRows = false;
+            this.Dgv_Categoria.AllowUserToOrderColumns = true;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.Dgv_Categoria.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
+            this.Dgv_Categoria.BackgroundColor = System.Drawing.Color.Silver;
+            this.Dgv_Categoria.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.Dgv_Categoria.ColumnHeadersHeight = 35;
+            this.Dgv_Categoria.Location = new System.Drawing.Point(3, 3);
+            this.Dgv_Categoria.Name = "Dgv_Categoria";
+            this.Dgv_Categoria.ReadOnly = true;
+            this.Dgv_Categoria.Size = new System.Drawing.Size(240, 201);
+            this.Dgv_Categoria.TabIndex = 20;
+            this.Dgv_Categoria.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Dgv_Categoria_CellContentClick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(851, 393);
+            this.Controls.Add(this.Pnl_Categoria);
+            this.Controls.Add(this.Pnl_Um);
             this.Controls.Add(this.Btn_Buscar);
             this.Controls.Add(this.txt_Buscar);
             this.Controls.Add(this.label2);
@@ -326,6 +471,10 @@ namespace Sistem_Tienda
             ((System.ComponentModel.ISupportInitialize)(this.dgv_articulos)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.Pnl_Um.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.Dgv_Um)).EndInit();
+            this.Pnl_Categoria.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.Dgv_Categoria)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -357,6 +506,13 @@ namespace Sistem_Tienda
         private System.Windows.Forms.Button Btn_Buscar;
         private System.Windows.Forms.TextBox txt_Buscar;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ImageList imageList1;
+        private System.Windows.Forms.Panel Pnl_Um;
+        private System.Windows.Forms.Button Btn_Retorno_um;
+        private System.Windows.Forms.DataGridView Dgv_Um;
+        private System.Windows.Forms.Panel Pnl_Categoria;
+        private System.Windows.Forms.Button Btn_Regresar_Categoria;
+        private System.Windows.Forms.DataGridView Dgv_Categoria;
     }
 }
 

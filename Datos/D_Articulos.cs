@@ -132,6 +132,63 @@ namespace Sistem_Tienda.Datos
             return Rpta;
         }
 
+        public DataTable Listado_Um()
+        {
+            MySqlDataReader Resultado;
+            DataTable Table = new DataTable();
+            MySqlConnection sqlcon = new MySqlConnection();
+            try
+            {
+                //Consumo de conectividad
+                sqlcon = Conexion.getInstacia().CrearConexion();
+                string sql_tarea = "SELECT descripcion_un, id_um from tb_unidad_medidas";
+
+                MySqlCommand Comando = new MySqlCommand(sql_tarea, sqlcon);
+                Comando.CommandTimeout = 60;
+                sqlcon.Open();
+                Resultado = Comando.ExecuteReader();
+                Table.Load(Resultado);
+                return Table;
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (sqlcon.State == ConnectionState.Open) sqlcon.Close();
+            }
+        }
+
+        public DataTable Listado_Categoria()
+        {
+            MySqlDataReader Resultado;
+            DataTable Table = new DataTable();
+            MySqlConnection sqlcon = new MySqlConnection();
+            try
+            {
+                //Consumo de conectividad
+                sqlcon = Conexion.getInstacia().CrearConexion();
+                string sql_tarea = "SELECT descripcion_ca, id_ca from tb_categoria";
+
+                MySqlCommand Comando = new MySqlCommand(sql_tarea, sqlcon);
+                Comando.CommandTimeout = 60;
+                sqlcon.Open();
+                Resultado = Comando.ExecuteReader();
+                Table.Load(Resultado);
+                return Table;
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (sqlcon.State == ConnectionState.Open) sqlcon.Close();
+            }
+        }
 
     }
 }

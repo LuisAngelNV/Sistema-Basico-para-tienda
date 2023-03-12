@@ -23,6 +23,9 @@ namespace Sistem_Tienda
         #region "Mis Variables"
         int nid_ar = 0;
         int nEstadoGuarda = 0;
+        int nid_um = 0;
+        int nid_Ca = 0;
+
         #endregion
 
         #region "Mis Metodos"
@@ -89,7 +92,7 @@ namespace Sistem_Tienda
             txt_Articulo.Text = "";
             txt_Marca.Text = "";
             Txt_Medida.Text = "";
-            txt_Stock.Text = "";
+            txt_Stock.Text = "0";
             Txt_Categoria.Text = "";
         }
 
@@ -108,6 +111,78 @@ namespace Sistem_Tienda
                 Txt_Medida.Text = Convert.ToString(dgv_articulos.CurrentRow.Cells["codigo_um"].Value);
                 Txt_Categoria.Text = Convert.ToString(dgv_articulos.CurrentRow.Cells["codigo_ca"].Value);
                 txt_Stock.Text = Convert.ToString(dgv_articulos.CurrentRow.Cells["stock_actual"].Value);
+                this.nid_um = Convert.ToInt32(dgv_articulos.CurrentRow.Cells["codigo_um"].Value);
+                this.nid_Ca = Convert.ToInt32(dgv_articulos.CurrentRow.Cells["codigo_ca"].Value);
+            }
+
+        }
+
+        #endregion
+
+        #region "Métodos para medidas y categorias"
+
+        private void Formato_UM()
+        {
+            Dgv_Um.Columns[0].Width = 200;
+            Dgv_Um.Columns[0].HeaderText = "MEDIDAS";
+            Dgv_Um.Columns[1].Visible = false;
+           
+        }
+        private void Listado_UM()
+        {
+            //Instanciación
+            D_Articulos Datos = new D_Articulos();
+            Dgv_Um.DataSource = Datos.Listado_Um();
+            this.Formato_UM();
+        }
+
+        private void Formato_Categorias()
+        {
+            Dgv_Categoria.Columns[0].Width = 200;
+            Dgv_Categoria.Columns[0].HeaderText = "MEDIDAS";
+            Dgv_Categoria.Columns[1].Visible = false;
+
+        }
+        private void Listado_Categorias()
+        {
+            //Instanciación
+            D_Articulos Datos = new D_Articulos();
+            Dgv_Categoria.DataSource = Datos.Listado_Categoria();
+            this.Formato_Categorias();
+        }
+
+        private void Selecciona_item_um()
+        {
+            if (string.IsNullOrEmpty(Convert.ToString(Dgv_Um.CurrentRow.Cells["id_um"].Value)))
+            {
+                MessageBox.Show("Selecciona un elemento de la lista",
+                                "Aviso del sistema",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Exclamation);
+            }
+            else
+            {
+                this.nid_um = Convert.ToInt32(Dgv_Um.CurrentRow.Cells["id_um"].Value);
+                Txt_Medida.Text = Convert.ToString(Dgv_Um.CurrentRow.Cells["descripcion_un"].Value);
+        
+            }
+
+        }
+
+        private void Selecciona_item_categoria()
+        {
+            if (string.IsNullOrEmpty(Convert.ToString(Dgv_Categoria.CurrentRow.Cells["id_ca"].Value)))
+            {
+                MessageBox.Show("Selecciona un elemento de la lista",
+                                "Aviso del sistema",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Exclamation);
+            }
+            else
+            {
+                this.nid_Ca = Convert.ToInt32(Dgv_Categoria.CurrentRow.Cells["id_ca"].Value);
+                Txt_Categoria.Text = Convert.ToString(Dgv_Categoria.CurrentRow.Cells["descripcion_ca"].Value);
+
             }
 
         }
@@ -117,6 +192,8 @@ namespace Sistem_Tienda
         private void Form1_Load(object sender, EventArgs e)
         {
             this.Listado_Art("%");
+            this.Listado_UM();
+            this.Listado_Categorias();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -128,8 +205,8 @@ namespace Sistem_Tienda
         private void Menu_Nuevo_Click(object sender, EventArgs e)
         {
             nEstadoGuarda = 1; //Nuevo resgitro
-            this.Limpia_texto();
             this.Estado_Tex(true);
+            this.Limpia_texto();
             this.Estado_botones_proceso(true);
             this.Estado_Botones_Principales(true);
             txt_Articulo.Focus();
@@ -154,8 +231,8 @@ namespace Sistem_Tienda
             oAr.id_ar = nid_ar;
             oAr.descripcion_ar = txt_Articulo.Text.Trim();
             oAr.marca_ar = txt_Marca.Text.Trim();
-            oAr.codigo_um = 1;
-            oAr.codigo_ca = 1;
+            oAr.codigo_um = this.nid_um;
+            oAr.codigo_ca = this.nid_Ca;
             oAr.stock_actual = Convert.ToDecimal(txt_Stock.Text.Trim());
             oAr.fecha_creado = DateTime.Now.ToString("yyyy-MM-dd");
             oAr.fecha_modificado = DateTime.Now.ToString("yyyy-MM-dd");
@@ -171,6 +248,9 @@ namespace Sistem_Tienda
                 this.Estado_Botones_Principales(true);
                 this.Listado_Art("%");
                 nid_ar = 0;
+                nEstadoGuarda = 0;
+                nid_Ca = 0;
+                nid_um = 0;
 
                 MessageBox.Show("Los datos han sido guardados correctamente",
                                 "Aviso del sistema",
@@ -238,6 +318,40 @@ namespace Sistem_Tienda
         {
             Frm_Reporte_Articulos oRpt = new Frm_Reporte_Articulos();
             oRpt.ShowDialog();
+        }
+
+        private void Btn_lupa_Unidad_De_Medida_Click(object sender, EventArgs e)
+        {
+            Pnl_Um.Location = Txt_Medida.Location;
+            Pnl_Um.Visible = true;
+        }
+
+        private void btn_lupa_categoria_Click(object sender, EventArgs e)
+        {
+            Pnl_Categoria.Location = Txt_Categoria.Location;
+            Pnl_Categoria.Visible = true;
+        }
+
+        private void Btn_Retorno_um_Click(object sender, EventArgs e)
+        {
+            Pnl_Um.Visible = false;
+        }
+
+        private void Btn_Regresar_Categoria_Click(object sender, EventArgs e)
+        {
+            Pnl_Categoria.Visible = false;
+        }
+
+        private void Dgv_Um_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            this.Selecciona_item_um();
+            Pnl_Um.Visible = false;
+        }
+
+        private void Dgv_Categoria_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            this.Selecciona_item_categoria();
+            Pnl_Categoria.Visible = false;
         }
     }
 }
